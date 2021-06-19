@@ -5,6 +5,7 @@ export const resolve = {
   alias: {
     root: _resolve(__dirname, 'src'),
     components: 'root/components',
+    core: 'root/core',
   },
   rules: [
     {

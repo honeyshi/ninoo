@@ -1,0 +1,52 @@
+@import '~rsuite/src/styles/variables.less';
+@import '../../variables.less';
+
+.rs-navbar {
+  background-color: white !important;
+  padding-left: @nav-bar-padding-vertical;
+  padding-right: @nav-bar-padding-vertical;
+  .rs-navbar-header {
+    display: flex;
+    align-items: center;
+    .navbar-brand {
+      font-family: 'Rubik', sans-serif;
+      color: @base-color !important;
+      font-size: @font-size-h2;
+      padding: @nav-bar-padding-horizontal @nav-bar-padding-vertical;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: @link-hover-color !important;
+      }
+      .icon {
+        padding-right: @padding-large-vertical;
+      }
+    }
+  }
+  .rs-nav {
+    .rs-nav-item-active {
+      .rs-nav-item-content {
+        font-weight: @text-bold-weight;
+        ::after {
+          content: '•';
+          font-size: @font-size-h2;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: @font-size-h2;
+          text-align: center;
+        }
+      }
+    }
+    .rs-nav-item-content {
+      display: flex;
+      align-items: center;
+      &:hover,
+      &:focus {
+        background: none !important;
+        color: @base-color !important;
+      }
+    }
+  }
+}
