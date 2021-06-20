@@ -6,6 +6,8 @@ export const resolve = {
     root: _resolve(__dirname, 'src'),
     components: 'root/components',
     core: 'root/core',
+    illustrations: 'root/illustrations',
+    pages: 'root/pages',
   },
   rules: [
     {
@@ -15,6 +17,10 @@ export const resolve = {
           loader: 'less-loader',
         },
       ],
+    },
+    {
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
     },
   ],
 };

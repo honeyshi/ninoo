@@ -1,19 +1,22 @@
 import 'rsuite/src/styles/index.less';
 import 'remixicon/fonts/remixicon.css';
+import './theme.less';
 
-import { Container, Header } from 'rsuite';
+import { Route, Switch } from 'react-router-dom';
 
-import { Navigation } from 'components/Navigation';
+import { Auth } from 'pages/Auth';
 import React from 'react';
+import { StartPage } from 'pages/StartPage';
 
 export const App: React.FC = () => {
   return (
-    <div className="App">
-      <Container>
-        <Header>
-          <Navigation />
-        </Header>
-      </Container>
-    </div>
+    <Switch>
+      <Route exact path="/">
+        <StartPage />
+      </Route>
+      <Route exact path="/auth">
+        <Auth />
+      </Route>
+    </Switch>
   );
 };
