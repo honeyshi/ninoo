@@ -2,10 +2,9 @@ import './Navigation.less';
 
 import { Button, Nav, Navbar } from 'rsuite';
 import { Link, useLocation } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { Icon } from 'components/Icon';
-import { useState } from 'react';
+import { Brand } from 'components/Brand';
 
 export const Navigation: React.FC = () => {
   const [activeBar, setActiveBar] = useState('');
@@ -29,10 +28,7 @@ export const Navigation: React.FC = () => {
   return (
     <Navbar>
       <Navbar.Header>
-        <a href="/" className="navbar-brand logo">
-          <Icon className="icon" name="pin-distance" styleType="fill" />
-          ninoo
-        </a>
+        <Brand className="navbar-brand" />
       </Navbar.Header>
       <Navbar.Body>
         <Nav pullRight activeKey={activeBar} onSelect={(key) => setActiveBar(key)}>
