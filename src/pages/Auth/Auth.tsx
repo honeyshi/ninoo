@@ -9,11 +9,21 @@ import {
   FormControl,
   FormGroup,
   Panel,
+  Schema,
 } from 'rsuite';
 
 import { Login } from 'illustrations';
 import { Paragraph } from 'components/Paragraph';
 import React from 'react';
+
+const { StringType } = Schema.Types;
+const model = Schema.Model({
+  password: StringType()
+    .minLength(6, 'Введите не менее 6 символов')
+    .maxLength(30, 'Введите не более 30 символов')
+    .isRequired('Обязательное поле'),
+  email: StringType().isEmail('Введите корректный адрес электронной почты').isRequired('Обязательное поле'),
+});
 
 export const Auth: React.FC = () => {
   return (
@@ -31,7 +41,7 @@ export const Auth: React.FC = () => {
                     С возвращением!
                   </Paragraph>
                 }>
-                <Form fluid>
+                <Form fluid model={model}>
                   <FormGroup>
                     <Paragraph tag="span">Продолжите своё увлекательное путешествие по городу</Paragraph>
                   </FormGroup>
@@ -41,7 +51,7 @@ export const Auth: React.FC = () => {
                   </FormGroup>
                   <FormGroup>
                     <ControlLabel>Email</ControlLabel>
-                    <FormControl name="name" />
+                    <FormControl name="email" />
                   </FormGroup>
                   <FormGroup>
                     <ControlLabel>Пароль</ControlLabel>
@@ -54,7 +64,7 @@ export const Auth: React.FC = () => {
                     </FlexboxGrid>
                   </FormGroup>
                   <FormGroup>
-                    <Button appearance="primary" block>
+                    <Button block appearance="primary" type="submit">
                       Войти
                     </Button>
                   </FormGroup>
