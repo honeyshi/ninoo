@@ -31,7 +31,7 @@ export const Auth: React.FC = () => {
       <Content>
         <FlexboxGrid align="middle" className="h-100">
           <FlexboxGrid.Item colspan={12} className="h-100 bg-light">
-            <Login />
+            <Login width="100%" height="100%" />
           </FlexboxGrid.Item>
           <FlexboxGrid.Item colspan={12}>
             <FlexboxGrid justify="center">
@@ -44,10 +44,6 @@ export const Auth: React.FC = () => {
                 <Form fluid model={model}>
                   <FormGroup>
                     <Paragraph tag="span">Продолжите своё увлекательное путешествие по городу</Paragraph>
-                  </FormGroup>
-                  <FormGroup>
-                    <Paragraph tag="span">Еще нет аккаунта?</Paragraph>
-                    <Button appearance="link">Зарегистрируйтесь.</Button>
                   </FormGroup>
                   <FormGroup>
                     <ControlLabel>Email</ControlLabel>
@@ -66,6 +62,12 @@ export const Auth: React.FC = () => {
                   <FormGroup>
                     <Button block appearance="primary" type="submit">
                       Войти
+                    </Button>
+                  </FormGroup>
+                  <FormGroup>
+                    <Paragraph tag="span">Еще нет аккаунта?</Paragraph>
+                    <Button appearance="link" href="/signup">
+                      Зарегистрируйтесь.
                     </Button>
                   </FormGroup>
                 </Form>
