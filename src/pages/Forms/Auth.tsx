@@ -8,13 +8,15 @@ import {
   Form,
   FormControl,
   FormGroup,
+  InputGroup,
   Panel,
   Schema,
 } from 'rsuite';
+import React, { useState } from 'react';
 
 import { Login } from 'illustrations';
 import { Paragraph } from 'components/Paragraph';
-import React from 'react';
+import { PasswordToggler } from 'components/PasswordToggler';
 
 const { StringType } = Schema.Types;
 const model = Schema.Model({
@@ -26,6 +28,7 @@ const model = Schema.Model({
 });
 
 export const Auth: React.FC = () => {
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <Container>
       <Content>
@@ -51,7 +54,16 @@ export const Auth: React.FC = () => {
                   </FormGroup>
                   <FormGroup>
                     <ControlLabel>Пароль</ControlLabel>
-                    <FormControl name="password" type="password" />
+                    <InputGroup inside className="w-100">
+                      <FormControl name="password" type={showPassword ? 'text' : 'password'} />
+                      <InputGroup.Button>
+                        <PasswordToggler
+                          show={showPassword}
+                          setShow={() => setShowPassword(true)}
+                          setHide={() => setShowPassword(false)}
+                        />
+                      </InputGroup.Button>
+                    </InputGroup>
                   </FormGroup>
                   <FormGroup>
                     <FlexboxGrid justify="space-between">
