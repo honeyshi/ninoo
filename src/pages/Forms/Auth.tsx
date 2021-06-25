@@ -68,7 +68,9 @@ export const Auth: React.FC = () => {
                   <FormGroup>
                     <FlexboxGrid justify="space-between">
                       <Checkbox>Запомнить меня</Checkbox>
-                      <Button appearance="link">Забыли пароль?</Button>
+                      <Button appearance="link" href="/forgot-password">
+                        Забыли пароль?
+                      </Button>
                     </FlexboxGrid>
                   </FormGroup>
                   <FormGroup>
