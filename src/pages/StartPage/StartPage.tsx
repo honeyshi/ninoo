@@ -1,4 +1,4 @@
-import { BasicLayout } from 'components/BasicLayout';
+import { BasicLayout } from 'components/Layout';
 import React from 'react';
 
 export const StartPage: React.FC = () => {

@@ -1,18 +1,7 @@
-import {
-  Button,
-  Container,
-  Content,
-  ControlLabel,
-  FlexboxGrid,
-  Form,
-  FormControl,
-  FormGroup,
-  Panel,
-  Schema,
-} from 'rsuite';
+import { ControlLabel, FormControl, FormGroup, Schema } from 'rsuite';
 
 import { ForgotPassword as ForgotPasswordIcon } from 'illustrations';
-import { Paragraph } from 'components/Paragraph';
+import { FormLayout } from 'components/Layout';
 import React from 'react';
 
 const { StringType } = Schema.Types;
@@ -23,39 +12,16 @@ const model = Schema.Model({
 
 export const ForgotPassword: React.FC = () => {
   return (
-    <Container>
-      <Content>
-        <FlexboxGrid align="middle" className="h-100">
-          <FlexboxGrid.Item colspan={12} className="h-100 bg-light">
-            <ForgotPasswordIcon width="100%" height="100%" />
-          </FlexboxGrid.Item>
-          <FlexboxGrid.Item colspan={12}>
-            <FlexboxGrid justify="center">
-              <Panel
-                header={
-                  <Paragraph primary tag="h3">
-                    Забыли пароль
-                  </Paragraph>
-                }>
-                <Form fluid model={model}>
-                  <FormGroup>
-                    <Paragraph tag="span">Введите свой email для восстановления пароля</Paragraph>
-                  </FormGroup>
-                  <FormGroup>
-                    <ControlLabel>Email</ControlLabel>
-                    <FormControl name="email" />
-                  </FormGroup>
-                  <FormGroup>
-                    <Button block appearance="primary" type="submit">
-                      Отправить ссылку
-                    </Button>
-                  </FormGroup>
-                </Form>
-              </Panel>
-            </FlexboxGrid>
-          </FlexboxGrid.Item>
-        </FlexboxGrid>
-      </Content>
-    </Container>
+    <FormLayout
+      header="Забыли пароль"
+      helperText="Введите свой email для восстановления пароля"
+      buttonText="Отправить ссылку"
+      icon={<ForgotPasswordIcon width="100%" height="100%" />}
+      model={model}>
+      <FormGroup>
+        <ControlLabel>Email</ControlLabel>
+        <FormControl name="email" />
+      </FormGroup>
+    </FormLayout>
   );
 };

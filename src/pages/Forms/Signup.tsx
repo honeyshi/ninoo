@@ -1,18 +1,7 @@
-import {
-  Button,
-  Container,
-  Content,
-  ControlLabel,
-  FlexboxGrid,
-  Form,
-  FormControl,
-  FormGroup,
-  InputGroup,
-  Panel,
-  Schema,
-} from 'rsuite';
+import { Button, ControlLabel, FormControl, FormGroup, InputGroup, Schema } from 'rsuite';
 import React, { useState } from 'react';
 
+import { FormLayout } from 'components/Layout';
 import { Paragraph } from 'components/Paragraph';
 import { PasswordToggler } from 'components/PasswordToggler';
 import { Signup as SignupIcon } from 'illustrations';
@@ -44,75 +33,52 @@ export const Signup: React.FC = () => {
   });
 
   return (
-    <Container>
-      <Content>
-        <FlexboxGrid align="middle" className="h-100">
-          <FlexboxGrid.Item colspan={12} className="h-100 bg-light">
-            <SignupIcon width="100%" height="100%" />
-          </FlexboxGrid.Item>
-          <FlexboxGrid.Item colspan={12}>
-            <FlexboxGrid justify="center">
-              <Panel
-                header={
-                  <Paragraph primary tag="h3">
-                    Регистрация
-                  </Paragraph>
-                }>
-                <Form
-                  fluid
-                  onChange={(formValue) => setFormValue(formValue as FormValueType)}
-                  formValue={formValue}
-                  model={model}>
-                  <FormGroup>
-                    <Paragraph tag="span">Начните своё увлекательное путешествие по городу</Paragraph>
-                  </FormGroup>
-                  <FormGroup>
-                    <ControlLabel>Email</ControlLabel>
-                    <FormControl name="email" />
-                  </FormGroup>
-                  <FormGroup>
-                    <ControlLabel>Пароль</ControlLabel>
-                    <InputGroup inside className="w-100">
-                      <FormControl name="password" type={showPassword ? 'text' : 'password'} />
-                      <InputGroup.Button>
-                        <PasswordToggler
-                          show={showPassword}
-                          setShow={() => setShowPassword(true)}
-                          setHide={() => setShowPassword(false)}
-                        />
-                      </InputGroup.Button>
-                    </InputGroup>
-                  </FormGroup>
-                  <FormGroup>
-                    <ControlLabel>Повторите пароль</ControlLabel>
-                    <InputGroup inside className="w-100">
-                      <FormControl name="passwordConfirm" type={showConfirmPassword ? 'text' : 'password'} />
-                      <InputGroup.Button>
-                        <PasswordToggler
-                          show={showConfirmPassword}
-                          setShow={() => setShowConfirmPassword(true)}
-                          setHide={() => setShowConfirmPassword(false)}
-                        />
-                      </InputGroup.Button>
-                    </InputGroup>
-                  </FormGroup>
-                  <FormGroup>
-                    <Button block appearance="primary" type="submit">
-                      Регистрация
-                    </Button>
-                  </FormGroup>
-                  <FormGroup>
-                    <Paragraph tag="span">Уже есть аккаунт?</Paragraph>
-                    <Button appearance="link" href="/auth">
-                      Войти.
-                    </Button>
-                  </FormGroup>
-                </Form>
-              </Panel>
-            </FlexboxGrid>
-          </FlexboxGrid.Item>
-        </FlexboxGrid>
-      </Content>
-    </Container>
+    <FormLayout
+      header="Регистрация"
+      helperText="Начните своё увлекательное путешествие по городу"
+      buttonText="Регистрация"
+      icon={<SignupIcon width="100%" height="100%" />}
+      model={model}
+      afterButton={
+        <FormGroup>
+          <Paragraph tag="span">Уже есть аккаунт?</Paragraph>
+          <Button appearance="link" href="/auth">
+            Войти.
+          </Button>
+        </FormGroup>
+      }
+      onFormChange={(formValue) => setFormValue(formValue as FormValueType)}
+      formValue={formValue}>
+      <FormGroup>
+        <ControlLabel>Email</ControlLabel>
+        <FormControl name="email" />
+      </FormGroup>
+      <FormGroup>
+        <ControlLabel>Пароль</ControlLabel>
+        <InputGroup inside className="w-100">
+          <FormControl name="password" type={showPassword ? 'text' : 'password'} />
+          <InputGroup.Button>
+            <PasswordToggler
+              show={showPassword}
+              setShow={() => setShowPassword(true)}
+              setHide={() => setShowPassword(false)}
+            />
+          </InputGroup.Button>
+        </InputGroup>
+      </FormGroup>
+      <FormGroup>
+        <ControlLabel>Повторите пароль</ControlLabel>
+        <InputGroup inside className="w-100">
+          <FormControl name="passwordConfirm" type={showConfirmPassword ? 'text' : 'password'} />
+          <InputGroup.Button>
+            <PasswordToggler
+              show={showConfirmPassword}
+              setShow={() => setShowConfirmPassword(true)}
+              setHide={() => setShowConfirmPassword(false)}
+            />
+          </InputGroup.Button>
+        </InputGroup>
+      </FormGroup>
+    </FormLayout>
   );
 };
