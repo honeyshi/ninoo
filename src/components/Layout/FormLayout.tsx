@@ -26,10 +26,10 @@ export const FormLayout: React.FC<FormLayoutProps> = ({
   children,
 }) => {
   return (
-    <Container>
+    <Container className="bg-light">
       <Content>
         <FlexboxGrid align="middle" className="h-100">
-          <FlexboxGrid.Item colspan={12} className="h-100 bg-light">
+          <FlexboxGrid.Item colspan={12} className="h-100 ">
             {icon}
           </FlexboxGrid.Item>
           <FlexboxGrid.Item colspan={12}>

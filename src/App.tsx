@@ -1,6 +1,7 @@
 import 'rsuite/src/styles/index.less';
 import 'remixicon/fonts/remixicon.css';
 import './theme.less';
+import './theme-override.less';
 
 import { Route, Switch } from 'react-router-dom';
 
