@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { FormLayout } from 'components/Layout';
 import { Login } from 'illustrations';
 import { Paragraph } from 'components/Paragraph';
-import { PasswordToggler } from 'components/PasswordToggler';
+import { PasswordToggler } from 'components/PasswordHandlers';
 
 const { StringType } = Schema.Types;
 const model = Schema.Model({

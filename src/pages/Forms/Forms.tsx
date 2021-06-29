@@ -1,4 +1,4 @@
-import { Auth, ForgotPassword, Signup } from 'pages/Forms';
+import { Auth, ForgotPassword, ResetPassword, Signup } from 'pages/Forms';
 import { Route, Switch } from 'react-router-dom';
 
 import React from 'react';
@@ -14,6 +14,9 @@ export const Forms: React.FC = () => {
       </Route>
       <Route exact path="/forgot-password">
         <ForgotPassword />
+      </Route>
+      <Route exact path="/reset-password">
+        <ResetPassword />
       </Route>
     </Switch>
   );
