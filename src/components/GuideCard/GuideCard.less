@@ -1,0 +1,43 @@
+@import '~rsuite/src/styles/variables.less';
+@import '../../variables.less';
+
+.guide-card-col {
+  margin-bottom: 3rem;
+  .guide-card-wrapper {
+    box-shadow: @default-shadow;
+    background-color: @light-color;
+    width: 16.5rem;
+    height: 22.5rem;
+
+    .favourite-button {
+      margin-left: auto;
+    }
+    img {
+      border-radius: 50% !important;
+      width: 7.5rem;
+      height: 7.5rem;
+    }
+    .guide-card-inner {
+      border-radius: 0px;
+      .rs-panel-heading {
+        text-align: center;
+      }
+      .card-header {
+        margin-top: @padding-large-vertical;
+      }
+      .profession,
+      .description {
+        margin-bottom: @padding-large-vertical;
+        word-break: break-all;
+      }
+      .rating-icon {
+        color: @yellow-color;
+        padding-left: @padding-large-horizontal;
+      }
+      .rs-panel-heading,
+      .rs-panel-body {
+        padding: 0px;
+      }
+    }
+  }
+}
